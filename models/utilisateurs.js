@@ -1,9 +1,9 @@
 const database = require("./database.js")
 
 async function getUserById (id) {
-    sql = "SELECT = FROM utilisateur WHERE id = 1";
+    sql = "SELECT = FROM utilisateur WHERE id = ?";
     return new Promise((resolve, reject) => {
-        database.query(sql, (err, results) => {
+        database.query(sql, id, (err, results) => {
             if (err) {
                 return eject(err);
             }
