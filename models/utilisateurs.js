@@ -8,6 +8,6 @@ async function getUserById (id) {
                 return eject(err);
             }
             resolve(results)
-        })
-    })
-}
+        });
+    });
+};
