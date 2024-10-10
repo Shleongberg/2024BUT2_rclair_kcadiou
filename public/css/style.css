@@ -7,21 +7,6 @@ header {
     text-align: center;
 }
 
-/*--------------*/
-
-
-
-
-
-/*----Acceuil----*/
-
-h2 {
-    font-family: "K2D", sans-serif;
-}
-
-p {
-    font-family: "Kanit", sans-serif;
-}
 
 nav{
     background-color: #D9D9D9;
@@ -40,9 +25,19 @@ h1{
 ul{
     margin: 0;
 }
-
-
 /*--------------*/
+
+
+/*----Acceuil----*/
+
+h2 {
+    font-family: "K2D", sans-serif;
+}
+
+p {
+    font-family: "Kanit", sans-serif;
+}
+
 body{
     margin: 0%;
 }
