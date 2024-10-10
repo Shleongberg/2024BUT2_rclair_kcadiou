@@ -22,7 +22,6 @@ app.use((req, res) => {
     res.sendFile("./public/css/style.css", { root: __dirname });
 })
 
-
 app.use((req, res) => {
     res.status(404).render("404");
 })
