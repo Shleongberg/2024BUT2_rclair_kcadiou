@@ -7,21 +7,16 @@ app.set('view engine', 'ejs');
 
 app.use(express.static('public'));
 
-app.get('/', (req, res) => {
-    let data = { prenom: "Alice", nom: "Dumont" };
-    res.render("index", data);
-})
 app.get('/', async function(req, res) {
     try{
         const users  = await utilisateurs.getUserById(1);
         console.log(users);
-        res.render("index",user);
+        res.render("index",users);
     } catch (err){
         console.log(err);
         res.status(500).send('Erreur lors de la récupération des données')
         
     }
-
 })
 
 app.use((req, res) => {
