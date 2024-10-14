@@ -113,11 +113,11 @@ body {
 
 }
 
-button a {
+a {
     text-decoration: none;
     color: #538FA3;
 }
-button a:hover {
+a:hover {
     text-decoration: none;
     color: #F18F01;
 }
@@ -194,16 +194,13 @@ body {
 
 }
 
-.reservation,
-.quantity,
-.price {
+.reservation, .quantity, .price {
     margin-bottom: 20px;
     font-family: "K2D", sans-serif;
 
 }
 
-.duration-selector,
-.quantity-selector {
+.duration-selector, .quantity-selector {
     display: flex;
     align-items: center;
     justify-content: space-between;
