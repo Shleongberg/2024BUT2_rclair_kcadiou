@@ -52,21 +52,21 @@ body{
     justify-content: flex-start;
     padding: 50px;
     background-color: white;
-    flex-wrap: wrap; /* Allows wrapping for responsive layout */
+    flex-wrap: wrap; 
 }
 
 .index-pic {
     width: 750px;
     height: auto;
     border-radius: 10px;
-    margin-right: 30px; /* Space between the image and text */
+    margin-right: 30px; 
 }
 
 .text-content {
     max-width: 500px;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centers the text vertically */
+    justify-content: center; 
 }
 
 .title {
