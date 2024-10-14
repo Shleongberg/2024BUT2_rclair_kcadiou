@@ -173,10 +173,12 @@ body {
 }
 
 .product-image img {
-    width: 500px;
+    width: 600px;
     height: auto;
     border-radius: 10px;
     background-color: #ffffff;
+    padding: 60px;
+    margin: 10px;
 }
 
 .product-info {
