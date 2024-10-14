@@ -164,7 +164,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
+    background-color: #D9D9D9;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -173,10 +173,10 @@ body {
 }
 
 .product-image img {
-    width: 300px;
+    width: 500px;
     height: auto;
     border-radius: 10px;
-    background-color: #eee;
+    background-color: #ffffff;
 }
 
 .product-info {
@@ -190,12 +190,16 @@ body {
     font-size: 24px;
     color: #4D636F;
     margin-bottom: 20px;
+    font-family: Kanit;
+
 }
 
 .reservation,
 .quantity,
 .price {
     margin-bottom: 20px;
+    font-family: "K2D", sans-serif;
+
 }
 
 .duration-selector,
@@ -222,11 +226,15 @@ body {
 
 .price {
     font-size: 24px;
-    color: #F19E4E;
+    color: #000000;
+    font-family: Kanit;
 }
 
 .price-value {
     font-weight: bold;
+    color: #F19E4E;
+    font-family: "K2D", sans-serif;
+
 }
 
 /*--------------*/
