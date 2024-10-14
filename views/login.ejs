@@ -1,13 +1,25 @@
 <%- include('header'); -%>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/public/css/style.css" rel="stylesheet">
-    <title>login</title>
-</head>
-<body>
-    
-</body>
 
-<%- include('footer'); -%>
+    <body>
+        <div>
+            <h2 id="form-title">Connexion</h2>
+            <form id="auth-form">
+                <div id="login-form">
+                    <input type="text" id="login-username" name="username" placeholder="Nom d'utilisateur" required>
+                    <input type="password" id="login-password" name="password" placeholder="Mot de passe" required>
+                    <button type="submit">Se Connecter</button>
+                </div>
+
+                <div id="signup-form" style="display: none;">
+                    <input type="text" id="signup-username" name="username" placeholder="Nom d'utilisateur" required>
+                    <input type="email" id="signup-email" name="email" placeholder="Email" required>
+                    <input type="password" id="signup-password" name="password" placeholder="Mot de passe" required>
+                    <button type="submit">S'inscrire</button>
+                </div>
+            </form>
+            <span class="toggle-link" id="toggle-link">Pas encore de compte ? Inscrivez-vous</span>
+        </div>
+    </body>
+
+    <%- include('footer'); -%>
