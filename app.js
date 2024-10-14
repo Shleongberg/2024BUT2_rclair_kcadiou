@@ -18,12 +18,22 @@ app.get('/', async function(req, res) {
         
     }
 })
+app.get('/produit', async function(req, res) {
+    try{
+        const users  = await utilisateurs.getUserById(1);
+        console.log(users);
+        res.render("product",users);
+    } catch (err){
+        console.log(err);
+        res.status(500).send('Erreur lors de la récupération des données')
+        
+    }
+})
+
 app.use((req, res) => {
     res.sendFile("./public/css/style.css", { root: __dirname });
 })
-app.get('/produit', (req, res) => {
-    res.sendFile("/product", { root: __dirname }); 
-})
+
 
 app.use((req, res) => {
     res.status(404).render("404");
