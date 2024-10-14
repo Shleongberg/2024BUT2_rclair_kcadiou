@@ -18,6 +18,29 @@ app.get('/', async function(req, res) {
         
     }
 })
+app.get('/login', async function(req, res) {
+    try{
+        const users  = await utilisateurs.getUserById(1);
+        console.log(users);
+        res.render("login",users);
+    } catch (err){
+        console.log(err);
+        res.status(500).send('Erreur lors de la récupération des données')
+        
+    }
+})
+app.get('/catalogue', async function(req, res) {
+    try{
+        const users  = await utilisateurs.getUserById(1);
+        console.log(users);
+        res.render("catalogue",users);
+    } catch (err){
+        console.log(err);
+        res.status(500).send('Erreur lors de la récupération des données')
+        
+    }
+})
+
 app.get('/produit', async function(req, res) {
     try{
         const users  = await utilisateurs.getUserById(1);
