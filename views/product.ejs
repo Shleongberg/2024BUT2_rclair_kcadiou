@@ -1,29 +1,69 @@
 <%- include('header'); -%>
 
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page Produit</title>
-    <link rel="stylesheet" href="/public/css/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    
+
+    <div class="product-container">
+        <div class="product-image">
+            <img src="../image/altere.png" alt="Poids de 2x5kg">
+        </div>
+
+        <div class="product-info">
+            <h2>Poids 2x5 kg</h2>
+            <div class="reservation">
+                <p>Durée de réservation</p>
+                <div class="duration-selector">
+                    <button onclick="decreaseValue('duration')">-</button>
+                    <span id="duration">1 </span> mois                                                   
+                    <button onclick="increaseValue('duration', 36)">+</button>
+                </div>
+            </div>
+
+            <div class="quantity">
+                <p>Quantité</p>
+                <div class="quantity-selector">
+                    <button onclick="decreaseValue('quantity')">-</button>
+                    <span id="quantity">1</span>
+                    <button onclick="increaseValue('quantity', 99)">+</button>
+                </div>
+            </div>
+
+            <div class="price">
+                <p>Prix</p>
+                <span class="price-value">3.99€</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function increaseValue(elementId, maxValue) {
+            let value = parseInt(document.getElementById(elementId).innerText);
+            if (value < maxValue) {
+                value++;
+                document.getElementById(elementId).innerText = value;
+            }
+        }
+
+        function decreaseValue(elementId) {
+            let value = parseInt(document.getElementById(elementId).innerText);
+            if (value > 1) {
+                value--;
+                document.getElementById(elementId).innerText = value;
+            }
+        }
+    </script>
+
 </body>
 
 </html>
-
-<%- include('footer'); -%>
-
-
-
-
-
-
-
-
 
 <%- include('footer'); -%>
