@@ -9,6 +9,8 @@ header {
     justify-content: space-between;
     padding-left: 2%;
     padding-right: 2%;
+    align-items: center;
+
 }
 
 
@@ -20,14 +22,22 @@ nav{
     font-size: 1.6rem;
     font-family: "MuseoModerno", sans-serif;
     font-weight: bold;
-    padding: 20px;
 
 }
 h1{
     margin: 0;
 }
 ul{
-    margin: 0;
+    padding-inline-start: 0px;
+    margin: 20px;
+}
+
+ul:hover{
+    color: black;
+    background-color: grey;
+    text-decoration: underline;
+    
+
 }
 body{
     margin: 0%;
