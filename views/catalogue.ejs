@@ -1,7 +1,79 @@
 <%- include('header'); -%>
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogue - Bon Plan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
 <body>
-    csc
+
+    <div class="container">
+        <!-- Filtres -->
+        <aside class="filter-section">
+            <h2>Filtre :</h2>
+
+            <div class="filter-category">
+                <h3>Genre :</h3>
+                <label><input type="radio" name="gender" value="tout" checked> Tout</label>
+                <label><input type="radio" name="gender" value="homme"> Homme</label>
+                <label><input type="radio" name="gender" value="femme"> Femme</label>
+
+            </div>
+
+            <div class="filter-category">
+                <h3>Prix :</h3>
+                <input type="range" id="price" name="price" min="0" max="150" value="53">
+                <div class="price-values">
+                    <span>0€</span>
+                    <span>3500€</span>
+                </div>
+            </div>
+
+            <div class="filter-category">
+                <h3>Marque :</h3>
+                <label><input type="checkbox" name="brand" value="bh-fitness"> BH Fitness</label>
+                <label><input type="checkbox" name="brand" value="AFW"> AFW - AllFreeWeight</label>
+                <label><input type="checkbox" name="brand" value="Compex"> Compex</label>
+                <label><input type="checkbox" name="brand" value="CoreHomeFitness"> CoreHomeFitness</label>
+                <label><input type="checkbox" name="brand" value="FreeMotion"> FreeMotion</label>
+                <label><input type="checkbox" name="brand" value="LifeFitness"> LifeFitness</label>
+                <label><input type="checkbox" name="brand" value="precor-fitness"> InspireFitness</label>
+                <label><input type="checkbox" name="brand" value="Cadenza"> Cadenza</label>
+                <label><input type="checkbox" name="brand" value="Pro Strength"> Pro Strength</label>
+
+            </div>
+        </aside>
+
+        <!-- Catalogue de produits -->
+        <section class="product-section">
+            <h2>Bon Plan</h2>
+
+            <div class="product-list">
+                <div class="product-item">
+                    <img src="image/altere.png" alt="Poids 2x5 kg">
+                    <p>Poids 2x5 kg</p>
+                </div>
+
+                <div class="product-item">
+                    <img src="image/tapis.png" alt="Tapis">
+                    <p>Tapis</p>
+                </div>
+
+                <div class="product-item">
+                    <img src="image/corde.png" alt="Corde à sauter">
+                    <p>Corde à sauter</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
 </body>
+
+</html>
 
 <%- include('footer'); -%>
