@@ -46,7 +46,6 @@ body{
 
 
 /*----Acceuil----*/
-/*----Acceuil----*/
 
 .container {
     display: flex;
@@ -137,8 +136,6 @@ body{
 
 /*----Produit----*/
 
-
-
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -214,3 +211,5 @@ body {
 .price-value {
     font-weight: bold;
 }
+
+/*--------------*/
