@@ -452,3 +452,31 @@ input[type="email"] {
     color: #007bff;
     cursor: pointer;
 }
+
+.catalogue-image {
+    width: 80%; /* Utilise un pourcentage pour être réactif */
+    height: auto;
+    object-fit: contain;
+    max-width: 150px;
+}
+
+
+.product-item {
+    width: 150px; /* Taille du conteneur pour toutes les images */
+    height: auto; /* Ajuste en fonction de la hauteur de l'image */
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+.product-item img {
+    width: 100%; /* Utilise toute la largeur disponible dans le conteneur */
+    max-width: 150px; /* Limite la taille maximale de l'image */
+    height: auto; /* Garde les proportions de l'image */
+    display: block; /* S'assure que l'image ne déborde pas du conteneur */
+    margin: 0 auto; /* Centre l'image horizontalement */
+}
