@@ -76,6 +76,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-right: 15%;
     /* Centers the text vertically */
 }
 
@@ -85,6 +86,8 @@ body {
     color: #4D636F;
     margin-bottom: 20px;
     font-weight: bold;
+    margin-right: 90%;
+
 }
 
 .description {
@@ -354,17 +357,6 @@ input[type="range"] {
     flex-wrap: wrap;
 }
 
-.product-item {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    text-align: center;
-    width: 30%;
-    margin-bottom: 20px;
-    transition: transform 0.3s ease;
-}
-
 .product-item:hover {
     transform: scale(1.05);
 }
@@ -376,9 +368,9 @@ input[type="range"] {
 
 .product-item p {
     font-family: "Kanit", sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     color: #4D636F;
-    margin-top: 10px;
+    margin: 10px 0;
 }
 
 @media screen and (max-width: 768px) {
@@ -401,7 +393,70 @@ input[type="range"] {
     }
 }
 
-/*-----login-----*/
+.catalogue-image {
+    width: 80%; 
+    height: auto;
+    object-fit: contain;
+    max-width: 150px;
+}
+
+.product-item {
+    width: 200px;
+    background-color: #e6e6e6;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+    border: 1px solid #000;
+    font-family: "K2D", sans-serif;
+    height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-item img {
+    width: 100%;
+    max-width: 150px;
+    height: 150px;
+    object-fit: contain; 
+    margin: auto; 
+    margin-bottom: 10px;
+}
+
+.product-title {
+    font-family: "Kanit", sans-serif;
+    font-size: 16px;
+    font-style: italic;
+    color: #518a94;
+    margin-bottom: 30px;
+    flex-grow: 1; 
+}
+
+.product-price {
+    font-size: 24px;
+    color: #f18f01;
+    font-family: "K2D", sans-serif;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.brand-name {
+    font-family: "K2D", sans-serif;
+    color: #7f77a1;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+/*--------------*/
+
+
+
+/*-----Login-----*/
+
 .login-center{
     margin-top: 4%;
     display: flex;
@@ -451,4 +506,114 @@ input[type="email"] {
     margin-top: 10px;
     color: #007bff;
     cursor: pointer;
+}
+
+/*--------------*/
+
+
+
+
+/*----Footer----*/
+footer {
+    color: white;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f98b1c; 
+    padding: 10px 20px;
+}
+
+.social-icons a img {
+    width: 30px;
+    margin-right: 15px;
+}
+
+.contact-info {
+    color: white;
+}
+
+.contact-info span {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.contact-info p {
+    margin: 5px 0 0;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #737373; 
+}
+
+.column h4 {
+    color: white;
+    margin-bottom: 10px;
+}
+
+.column ul {    
+    list-style: none;
+    padding: 0;
+}
+
+.column ul li {
+    margin-bottom: 8px;
+}
+
+.column ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.column ul li a:hover {
+    text-decoration: underline;
+}
+
+.newsletter h4 {
+    color: white;
+    margin-bottom: 10px;
+}
+
+.newsletter form {
+    display: flex;
+    flex-direction: column;
+}
+
+.newsletter input[type="email"] {
+    padding: 8px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 4px;
+}
+
+.newsletter button {
+    background-color: #f98b1c;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.newsletter button:hover {
+    background-color: #e67e22;
+}
+
+.newsletter label {
+    font-size: 12px;
+    color: white;
+}
+
+.newsletter a {
+    color: white;
+    text-decoration: underline;
+}
+
+.newsletter a:hover {
+    text-decoration: none;
 }
