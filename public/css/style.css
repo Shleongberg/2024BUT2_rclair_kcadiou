@@ -40,7 +40,7 @@ ul {
     margin: 0;
 }
 
-ul:hover {
+nav ul:hover {
     color: #F18F01;
     background-color: #b9b9b9;
 }

@@ -73,7 +73,7 @@ app.get('/produit', async function(req, res) {
         return res.redirect("/connexion")
     }
     try{
-        const users  = await utilisateurs.getUserById(req.session.userID);
+        const users  = await utilisateurs.getUserById(req.session.userID    );
         res.render("product",users);
     } catch (err){
         res.status(500).send('Erreur lors de la récupération des données'+ err)
