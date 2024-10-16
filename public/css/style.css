@@ -606,16 +606,18 @@ input[type="range"] {
 .login{
     margin-top: 4%;
     background-color: #F18F01;
+    border-radius: 25px;
+    width: 30%;
     padding: 40px;
     display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
+    font-family: "K2D", sans-serif;
 }
-
-
-h2 {
-    text-align: center;
-    margin-bottom: 20px;
+.login-box {
+    display: flex;
+    justify-content: center;
 }
 
 input[type="text"],
@@ -631,15 +633,18 @@ input[type="email"] {
 .login-button {
     width: 100%;
     padding: 10px;
-    background-color: #2889a7;
+    background-color: #000000;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    font-family: "K2D", sans-serif;
+
 }
 
 .login-button:hover {
-    background-color: #218838;
+    background-color: #000000;
+    text-decoration: underline ;
 }
 
 
