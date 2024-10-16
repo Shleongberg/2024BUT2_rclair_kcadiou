@@ -1,7 +1,9 @@
 <%- include('header'); -%>
 
     <%%>
+    <section class="login-box">
     <div class="login">
+        <img src="/image/UserIcone.png" width="100px">
         <form id="auth-form" action="/connexion" method="post">
             <label for="">login : </label>
             <input type="text" id="name" name="username" placeholder="Nom d'utilisateur" required>
@@ -10,5 +12,5 @@
             <button type="submit" class="login-button">Se Connecter</button>
         </form>
     </div>
-
+</section>
         <%- include('footer'); -%>
