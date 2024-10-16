@@ -508,3 +508,112 @@ input[type="email"] {
     cursor: pointer;
 }
 
+/*--------------*/
+
+
+
+
+/*----Footer----*/
+footer {
+    color: white;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f98b1c; /* Orange pour la barre supérieure */
+    padding: 10px 20px;
+}
+
+.social-icons a img {
+    width: 30px;
+    margin-right: 15px;
+}
+
+.contact-info {
+    color: white;
+}
+
+.contact-info span {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.contact-info p {
+    margin: 5px 0 0;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #737373; /* Gris plus foncé pour la section inférieure */
+}
+
+.column h4 {
+    color: white;
+    margin-bottom: 10px;
+}
+
+.column ul {    
+    list-style: none;
+    padding: 0;
+}
+
+.column ul li {
+    margin-bottom: 8px;
+}
+
+.column ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.column ul li a:hover {
+    text-decoration: underline;
+}
+
+.newsletter h4 {
+    color: white;
+    margin-bottom: 10px;
+}
+
+.newsletter form {
+    display: flex;
+    flex-direction: column;
+}
+
+.newsletter input[type="email"] {
+    padding: 8px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 4px;
+}
+
+.newsletter button {
+    background-color: #f98b1c;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.newsletter button:hover {
+    background-color: #e67e22;
+}
+
+.newsletter label {
+    font-size: 12px;
+    color: white;
+}
+
+.newsletter a {
+    color: white;
+    text-decoration: underline;
+}
+
+.newsletter a:hover {
+    text-decoration: none;
+}
