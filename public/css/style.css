@@ -76,6 +76,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-right: 15%;
     /* Centers the text vertically */
 }
 
@@ -85,6 +86,8 @@ body {
     color: #4D636F;
     margin-bottom: 20px;
     font-weight: bold;
+    margin-right: 90%;
+
 }
 
 .description {
@@ -452,7 +455,7 @@ input[type="range"] {
 
 
 
-/*-----login-----*/
+/*-----Login-----*/
 
 .login-center{
     margin-top: 4%;
