@@ -40,7 +40,7 @@ ul {
     margin: 0;
 }
 
-nav ul:hover {
+ul:hover {
     color: #F18F01;
     background-color: #b9b9b9;
 }
@@ -99,7 +99,6 @@ body {
     display: flex;
     justify-content: center;
     margin-top: 20px;
-    background-color: #ffffff;
 }
 
 .catalogue-btn {
