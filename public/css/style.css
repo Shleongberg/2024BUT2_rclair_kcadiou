@@ -522,7 +522,7 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #f98b1c; /* Orange pour la barre supérieure */
+    background-color: #f98b1c; 
     padding: 10px 20px;
 }
 
@@ -548,7 +548,7 @@ footer {
     display: flex;
     justify-content: space-between;
     padding: 20px;
-    background-color: #737373; /* Gris plus foncé pour la section inférieure */
+    background-color: #737373; 
 }
 
 .column h4 {
