@@ -13,7 +13,7 @@ header {
 
 }
 
-header .login {
+header .iconeLogin {
     height: 50px;
 }
 
@@ -604,19 +604,15 @@ input[type="range"] {
 
 /*-----Login-----*/
 
-.login-center{
+.login{
     margin-top: 4%;
+    background-color: #F18F01;
+    padding: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.forms {
-    background-color: #d1c7c7;
-    padding: 50px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 300px;
-}
+
 
 h2 {
     text-align: center;
@@ -647,13 +643,7 @@ input[type="email"] {
     background-color: #218838;
 }
 
-.toggle-link {
-    text-align: center;
-    display: block;
-    margin-top: 10px;
-    color: #007bff;
-    cursor: pointer;
-}
+
 
 /*--------------*/
 
