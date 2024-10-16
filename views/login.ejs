@@ -1,27 +1,13 @@
 <%- include('header'); -%>
 
+    <%%>
 
-    <body>
-        <section class="login-center">
-        <div class="forms">
-            <h2 id="form-title">Connexion</h2>
-            <form id="auth-form">
-                <div id="login-form">
-                    <input type="text" id="login-username" name="username" placeholder="Nom d'utilisateur" required>
-                    <input type="password" id="login-password" name="password" placeholder="Mot de passe" required>
-                    <button type="submit" class="login-button">Se Connecter</button>
-                </div>
+        <form id="auth-form" action="/connexion" method="post">
+            <label for="">login : </label>
+            <input type="text" id="name" name="username" placeholder="Nom d'utilisateur" required>
+            <label for="">Mot de passe: </label>
+            <input type="password" id="login-password" name="password" placeholder="Mot de passe" required>
+            <button type="submit" class="login-button">Se Connecter</button>
+        </form>
 
-                <div id="signup-form" style="display: none;">
-                    <input type="text" id="signup-username" name="username" placeholder="Nom d'utilisateur" required>
-                    <input type="email" id="signup-email" name="email" placeholder="Email" required>
-                    <input type="password" id="signup-password" name="password" placeholder="Mot de passe" required>
-                    <button type="submit" class="login-button">S'inscrire</button>
-                </div>
-            </form>
-            <span class="toggle-link" id="toggle-link">Pas encore de compte ? Inscrivez-vous</span>
-        </div>
-    </section>
-    </body>
-
-    <%- include('footer'); -%>
+        <%- include('footer'); -%>

@@ -11,4 +11,18 @@ async function getUserById (id) {
         });
     });
 };
-module.exports = {getUserById};
+
+async function checkLogin(login) {
+    sql = "SELECT * FROM utilisateur WHERE login = ?";
+    return new Promise ((resolve, reject) => {
+        database.query(sql,login,(err, results) => {
+            if (err){
+                return reject (err);
+            }
+            resolve(results[0])
+        });
+    });
+    
+}
+
+module.exports = {getUserById, checkLogin};
