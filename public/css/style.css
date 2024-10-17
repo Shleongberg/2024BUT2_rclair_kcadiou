@@ -316,7 +316,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #D9D9D9;
+    background-color: #919191;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -342,7 +342,7 @@ body {
 
 .product-info h2 {
     font-size: 24px;
-    color: #4D636F;
+    color: #222222;
     margin-bottom: 20px;
     font-family: Kanit;
 
@@ -369,7 +369,7 @@ body {
 
 .duration-selector button,
 .quantity-selector button {
-    background-color: #538FA3;
+    background-color: #F18F01;
     color: white;
     border: none;
     padding: 10px;
@@ -386,7 +386,7 @@ body {
 
 .price-value {
     font-weight: bold;
-    color: #F19E4E;
+    color: #F18F01;
     font-family: "K2D", sans-serif;
 
 }
@@ -421,7 +421,7 @@ body {
 
 .filter-section h2,
 .filter-category h3 {
-    color: #4D636F;
+    color: #2b2b2b;
     font-family: "K2D", sans-serif;
 }
 
@@ -432,7 +432,7 @@ body {
 .filter-category label {
     display: block;
     margin: 10px 0;
-    color: #538FA3;
+    color: #424242;
 }
 
 input[type="radio"],
@@ -440,7 +440,7 @@ input[type="checkbox"] {
     appearance: none;
     -webkit-appearance: none;
     background-color: #fff;
-    border: 2px solid #538FA3;
+    border: 2px solid #222222;
     border-radius: 50%;
     width: 20px;
     height: 20px;
@@ -492,7 +492,7 @@ input[type="range"] {
 
 .product-section h2 {
     font-family: "K2D", sans-serif;
-    color: #F19E4E;
+    color: #F18F01;
     font-size: 28px;
     margin-bottom: 20px;
 }
@@ -515,7 +515,7 @@ input[type="range"] {
 .product-item p {
     font-family: "Kanit", sans-serif;
     font-size: 16px;
-    color: #4D636F;
+    color: #202020;
     margin: 10px 0;
 }
 
@@ -605,7 +605,7 @@ input[type="range"] {
 
 .login{
     margin-top: 4%;
-    background-color: #F18F01;
+    background-color: #3d3a35;
     border-radius: 25px;
     width: 30%;
     padding: 40px;
