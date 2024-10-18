@@ -68,7 +68,6 @@ app.get('/inscription', function(req, res) {
 
     mdp = md5(mdp);
 
-
     try {
         const userId = await utilisateurs.addUser(login, mail, mdp);
     
