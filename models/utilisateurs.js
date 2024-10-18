@@ -19,10 +19,24 @@ async function checkLogin(login) {
             if (err){
                 return reject (err);
             }
-            resolve(results[0])
+            resolve(results)
         });
     });
     
 }
+async function addUser(login,mail,password) {  
+    const sql = "INSERT INTO utilisateur (login, email, password) VALUES (?, ?, ?)";
+    return new Promise((resolve, reject) => {
+        database.query(sql, [login, mail, password], (err, results) => {  
+            if (err) {
+                if (err.code === 'ER_DUP_ENTRY') {
+                    return reject(new Error('Cet utilisateur ou cet email existe déjà.'));
+                }
+                return reject(err);
+            }
+            resolve(results.insertId); 
+        });
+    });
+}
 
-module.exports = {getUserById, checkLogin};
+module.exports = {getUserById, checkLogin, addUser};

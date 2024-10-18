@@ -602,8 +602,7 @@ input[type="range"] {
 
 
 /*-----Login-----*/
-
-.login{
+.login {
     margin-top: 4%;
     background-color: #F18F01;
     border-radius: 25px;
@@ -613,25 +612,21 @@ input[type="range"] {
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    font-family: "K2D", sans-serif;
     font-size: 1.4rem;
 }
 .login-box {
     display: flex;
     justify-content: center;
 }
-
-input[type="text"], input[type="password"] {
+input[type="text"], input[type="password"], input[type="email"] {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
     border-radius: 4px;
     border: 1px solid #000000;
     font-size: 1rem;
-    font-family: "K2D", sans-serif;
 }
-
-.login-button {
+.login-button, .signup-button {
     width: 100%;
     padding: 10px;
     background-color: #000000;
@@ -640,15 +635,20 @@ input[type="text"], input[type="password"] {
     border-radius: 4px;
     cursor: pointer;
     font-size: 1rem;
-    font-family: "K2D", sans-serif;
-
 }
-
-.login-button:hover {
-    background-color: #000000;
-    text-decoration: underline ;
+.login-button:hover, .signup-button:hover {
+    text-decoration: underline;
 }
-
+.toggle-link {
+    margin-top: 10px;
+    color: #000;
+    cursor: pointer;
+    font-size: 1rem;
+    text-align: center;
+}
+.toggle-link:hover {
+    text-decoration: underline;
+}
 
 
 /*--------------*/
