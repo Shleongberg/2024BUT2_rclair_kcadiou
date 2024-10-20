@@ -40,6 +40,10 @@ app.get('/connexion', function(req, res) {
    res.render("login", {error : null});
 });
 
+app.get('/reservation', function(req, res) {
+    res.render("reservation", {error : null});
+ });
+
 app.post('/connexion', async function(req, res) {
     const login = req.body.username;
     let mdp = req.body.password;
