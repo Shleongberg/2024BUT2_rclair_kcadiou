@@ -25,9 +25,9 @@ async function checkLogin(login) {
     
 }
 async function addUser(login,mail,password) {  
-    const sql = "INSERT INTO utilisateur (login, email, password) VALUES (?, ?, ?)";
+    const sql = "INSERT INTO utilisateur (login, email, password, type_utilisateur) VALUES (?, ?, ?, 'client')";
     return new Promise((resolve, reject) => {
-        database.query(sql, [login, mail, password], (err, results) => {  
+        database.query(sql, [login, mail, password,], (err, results) => {  
             if (err) {
                 if (err.code === 'ER_DUP_ENTRY') {
                     return reject(new Error('Cet utilisateur ou cet email existe déjà.'));
@@ -38,5 +38,7 @@ async function addUser(login,mail,password) {
         });
     });
 }
+
+
 
 module.exports = {getUserById, checkLogin, addUser};
