@@ -1,5 +1,46 @@
 <%- include('header'); -%>
 
-Contenu 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Réservations Locfit</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="reservation-container">
+        <table class="reservation-table">
+            <thead>
+                <tr>
+                    <th>Article</th>
+                    <th>Prix</th>
+                    <th>Qté</th>
+                    <th>Sous-total</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="article-info">
+                        <img src="/image/titanium.png" alt="Image de l'article">
+                        <div class="article-details">
+                            <p><strong>FT5 multipower XRYA 2.0 Titanium G3</strong></p>
+                            <p>Livraison Au Rez-de-Chaussée Gratuite • 3-7 jours ouvrables</p>
+                        </div>
+                    </td>   
+                    <td>325,00 €</td>
+                    <td>
+                        <input type="number" value="1" min="1">
+                    </td>
+                    <td>325,00 €</td>
+                    <td><a href="#" class="remove-btn">×</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+ 
 
 <%- include('footer'); -%>
