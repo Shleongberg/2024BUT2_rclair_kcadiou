@@ -10,46 +10,10 @@
                 <label for="login-password">Mot de passe :</label>
                 <input type="password" id="login-password" name="password" placeholder="Mot de passe" required>
 
-                <label for="signup-email" id="signup-email-label" style="display: none;">Email :</label>
-                <input type="email" id="signup-email" name="email" placeholder="Email" style="display: none;" >
-
                 <button type="submit" class="login-button" id="submit-button">Se Connecter</button>
             </form>
             <a href="/inscription"><span class="toggle-link" >Pas encore de compte ? Inscrivez-vous</span></a>
         </div>
     </section>
 
-    
-    <script>
-        const formTitle = document.getElementById('form-title');
-        const toggleLink = document.getElementById('toggle-link');
-        const submitButton = document.getElementById('submit-button');
-        const emailField = document.getElementById('signup-email');
-        const emailLabel = document.getElementById('signup-email-label');
-        const usernameField = document.getElementById('name');
-        const passwordField = document.getElementById('login-password');
-        const authForm = document.getElementById('auth-form');
-
-        let isSignup = false;
-
-        toggleLink.addEventListener('click', () => {
-            if (isSignup) {
-                formTitle.textContent = 'Connexion';
-                emailField.style.display = 'none';
-                emailLabel.style.display = 'none';
-                submitButton.textContent = 'Se Connecter';
-                toggleLink.textContent = "Pas encore de compte ? Inscrivez-vous";
-                authForm.action = "/connexion";
-                isSignup = false;
-            } else {
-                formTitle.textContent = 'Inscription';
-                emailField.style.display = 'block';
-                emailLabel.style.display = 'block';
-                submitButton.textContent = "S'inscrire";
-                toggleLink.textContent = "Déjà un compte ? Connectez-vous";
-                authForm.action = "/inscription";
-                isSignup = true;
-            }
-        });
-    </script>
         <%- include('footer'); -%>

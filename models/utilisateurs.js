@@ -19,7 +19,7 @@ async function checkLogin(login) {
             if (err){
                 return reject (err);
             }
-            resolve(results)
+            resolve(results[0])
         });
     });
     
