@@ -47,14 +47,16 @@ app.get('/reservation', function(req, res) {
 app.post('/connexion', async function(req, res) {
     const login = req.body.username;
     let mdp = req.body.password;
-
+    
     mdp = md5(mdp);
 
     const user = await utilisateurs.checkLogin(login);
 
-    if(user && user.password == mdp){
+
+    if(user !=false && user.password == mdp){
         req.session.userID = user.id;
         req.session.role = user.type_utilisateur;
+
         return res.redirect("/");
     }
     else{
