@@ -30,20 +30,6 @@ app.use(function(req,res,next){
     next();
 });
 
-app.get('/', async function(req, res) {
-    res.render("index", {error : null});
-
-});
-
-
-app.get('/connexion', function(req, res) {
-   res.render("login", {error : null});
-});
-
-app.get('/reservation', function(req, res) {
-    res.render("reservation", {error : null});
- });
-
 app.post('/connexion', async function(req, res) {
     const login = req.body.username;
     let mdp = req.body.password;
@@ -92,6 +78,26 @@ app.get('/inscription', function(req, res) {
     }
 });
 
+app.get('/', async function(req, res) {
+    res.render("index", {error : null});
+
+});
+
+
+app.get('/connexion', function(req, res) {
+   res.render("login", {error : null});
+});
+
+app.get('/reservation', function(req, res) {
+    if (!req.session.userID){
+        return res.redirect("/connexion")
+    }
+    try{
+        const users  = utilisateurs.getUserById(req.session.userID);
+        res.render("reservation",users);
+    } catch (err){
+        res.status(500).send('Erreur lors de la récupération des données'+ err)
+    }});
 
 app.get('/catalogue', async function(req, res) {
     if (!req.session.userID){
