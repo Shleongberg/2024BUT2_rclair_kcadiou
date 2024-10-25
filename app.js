@@ -69,6 +69,8 @@ app.get('/inscription', function(req, res) {
         if(user && user.password === mdp){
             req.session.userID = user.id;
             req.session.role = user.type_utilisateur;
+            req.session.nom = user.nom;
+            req.session.prenom = user.prenom;
             return res.redirect("/");
         } else {
             res.render("inscription", {error: "Erreur lors de la création du compte."});
@@ -122,9 +124,22 @@ app.get('/produit', async function(req, res) {
     }});
 
 
+     app.get('/deconnexion', (req, res) => {
+        req.session.destroy((err) => {
+            if (err) {
+                console.log("Erreur lors de la déconnexion:", err);
+                return res.status(500).send("Erreur lors de la déconnexion.");
+            }
+            res.redirect('/'); 
+        });
+    });
+
 app.use((req, res) => {
     res.status(404).render("404");
 });
+
+
+
 
 app.listen(3000, () => {
     console.log('Server running on port 3000');

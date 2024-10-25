@@ -16,6 +16,9 @@ header {
 header .iconeLogin {
     height: 50px;
 }
+header .iconeLogout {
+    height: 80px;
+}
 
 nav {
     background-color: #F18F01;
