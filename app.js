@@ -5,6 +5,7 @@ const md5 = require('md5')
 const app = express();
 
 const utilisateurs = require('./models/utilisateurs.js')
+const produits = require('./models/produits.js');
 
 app.set('view engine', 'ejs');
 
@@ -101,16 +102,18 @@ app.get('/reservation', async function(req, res) {
         res.status(500).send('Erreur lors de la récupération des données'+ err)
     }});
 
-app.get('/catalogue', async function(req, res) {
-    if (!req.session.userID){
-        return res.redirect("/connexion")
-    }
-    try{
-        const users  = await utilisateurs.getUserById(req.session.userID);
-        res.render("catalogue",users);
-    } catch (err){
-        res.status(500).send('Erreur lors de la récupération des données'+ err)
-    }});
+
+    app.get('/catalogue', async function (req, res) {
+        if (!req.session.userID) {
+          return res.redirect("/connexion");
+        }
+        try {
+          const products = await produits.getAllProducts(); 
+          res.render("catalogue", { products }); 
+        } catch (err) {
+          res.status(500).send('Erreur lors de la récupération des données: ' + err);
+        }
+      });
 
 app.get('/produit', async function(req, res) {
     if (!req.session.userID){
