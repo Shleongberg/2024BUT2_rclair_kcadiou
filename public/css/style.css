@@ -522,26 +522,6 @@ input[type="range"] {
     margin: 10px 0;
 }
 
-@media screen and (max-width: 768px) {
-    .container {
-        flex-direction: column;
-    }
-
-    .filter-section,
-    .product-section {
-        width: 100%;
-    }
-
-    .product-list {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .product-item {
-        width: 80%;
-    }
-}
-
 .catalogue-image {
     width: 80%; 
     height: auto;
