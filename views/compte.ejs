@@ -1,0 +1,60 @@
+
+<% if(isAuth){ %>
+
+<%- include('header'); -%>
+
+
+<body>
+    
+    <main class="account-page">
+        <div class="sidebar">
+            <h2>Mon Compte</h2>
+            <ul>
+                <li><a href="#">Informations du compte</a></li>
+                <li><a href="#">Adresses de livraison</a></li>
+                <li><a href="#">Mes commandes</a></li>
+                <li><a href="#">Mes commentaires</a></li>
+                <li><a href="#">Ma liste d'achats</a></li>
+            </ul>
+        </div>
+
+        <div class="main-content">
+            <h1>Mon tableau de bord</h1>
+            
+            <section class="account-info">
+                <h2>Informations du compte</h2>
+                <div class="info-section">
+                    <div class="info-block">
+                        <h3>Informations de contact</h3>
+                        <p>J Dupont<br>jdupont@gmail.com</p>
+                        <a href="#">Modifier le mot de passe</a>
+                    </div>
+                    <div class="info-block">
+                        <h3>Newsletters</h3>
+                        <p>Vous n'êtes pas abonné à notre newsletter.</p>
+                        <a href="#">Modifier</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="address-book">
+                <h2>Carnet d'adresses</h2>
+                <div class="info-section">
+                    <div class="info-block">
+                        <h3>Adresse de facturation par défaut</h3>
+                        <p>Vous n'avez pas spécifié d'adresse de facturation par défaut.</p>
+                        <a href="#">Modifier l'adresse</a>
+                    </div>
+                    <div class="info-block">
+                        <h3>Adresse de livraison par défaut</h3>
+                        <p>Vous n'avez pas spécifié d'adresse de livraison par défaut.</p>
+                        <a href="#">Modifier l'adresse</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+</body>
+
+<%- include('footer'); -%>
+<% } %>
