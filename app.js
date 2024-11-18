@@ -137,18 +137,12 @@ app.get('/reservation', async function(req, res) {
         try {
             const productId = req.params.id;
             const product = await produits.getProductById(productId)
-    
-            if (!product) {
-                return res.status(404).send('Produit non trouvé');
-            }
                 res.render("product", { product });
     
         } catch (err) {
             res.status(500).send('Erreur lors de la récupération des données du produit: ' + err);
         }
     });
-    
-
 
      app.get('/deconnexion', (req, res) => {
         req.session.destroy((err) => {
@@ -163,9 +157,6 @@ app.get('/reservation', async function(req, res) {
 app.use((req, res) => {
     res.status(404).render("404");
 });
-
-
-
 
 app.listen(3000, () => {
     console.log('Server running on port 3000');
