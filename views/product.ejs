@@ -1,19 +1,71 @@
 <% if(isAuth){ %>
 <%- include('header'); -%>
 
-    <body>
-        <div class="container">
-            <h1>Caméra DSLR</h1>
-            <div class="product-details">
-                <p><span>Marque :</span> </p>
-                <p><span>Modèle :</span> </p>
-                <p class="description"><span>Description :</span> </p>
-                <p class="prix"><span>Prix :</span> 50 € par jour</p>
-            </div>
-            <a href="/reserver" class="reserve-btn">Réserver</a>
+<body>
+
+    <div class="product-container">
+        <div class="product-image">
+            <img src="/image/altere.png" alt="Poids de 2x5kg">
         </div>
 
-    
+        <div class="product-info">
+            <h2>Poids 2x5 kg</h2>
+            <div class="reservation">
+                <p>Durée de réservation</p>
+                <div class="duration-selector">
+                    <button onclick="decreaseValue('duration', 36)">-</button>
+                    <span id="duration">1</span> mois
+                    <button onclick="increaseValue('duration', 36)">+</button>
+                </div>
+            </div>
+
+            <div class="quantity">
+                <p>Quantité</p>
+                <div class="quantity-selector">
+                    <button onclick="decreaseValue('quantity', 99)">-</button>
+                    <span id="quantity">1</span>
+                    <button onclick="increaseValue('quantity', 99)">+</button>
+                </div>
+            </div>
+
+            <div class="price">
+                <p>Prix</p>
+                <span class="price-value" id="total-price">3.99€</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const basePrice = 3.99;  
+
+        function increaseValue(elementId, maxValue) {
+            let value = parseInt(document.getElementById(elementId).innerText);
+            if (value < maxValue) {
+                value++;
+                document.getElementById(elementId).innerText = value;
+                calculatePrice();  
+            }
+        }
+
+        function decreaseValue(elementId) {
+            let value = parseInt(document.getElementById(elementId).innerText);
+            if (value > 1) {
+                value--;
+                document.getElementById(elementId).innerText = value;
+                calculatePrice();  
+            }
+        }
+
+        function calculatePrice() {
+            const quantity = parseInt(document.getElementById('quantity').innerText);
+            const duration = parseInt(document.getElementById('duration').innerText);
+            const totalPrice = (basePrice * quantity * duration).toFixed(2);  
+            document.getElementById('total-price').innerText = `${totalPrice}€`;
+        }
+
+        calculatePrice();
+    </script>
+
 </body>
 
 <%- include('footer'); -%>
