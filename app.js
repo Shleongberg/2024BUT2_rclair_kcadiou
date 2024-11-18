@@ -130,16 +130,33 @@ app.get('/reservation', async function(req, res) {
         }
       });
 
-app.get('/produit', async function(req, res) {
-    if (!req.session.userID){
-        return res.redirect("/connexion")
-    }
-    try{
-        const users  = await utilisateurs.getUserById(req.session.userID);
-        res.render("product",users);
-    } catch (err){
-        res.status(500).send('Erreur lors de la récupération des données'+ err)
-    }});
+      app.get('/produit/:id', async function(req, res) {
+        if (!req.session.userID) {
+            return res.redirect("/connexion");
+        }
+        try {
+            const productId = req.params.id;
+    
+            const productQuery = "SELECT * FROM produit WHERE id = ?";
+            const product = await new Promise((resolve, reject) => {
+                database.query(productQuery, [productId], (err, results) => {
+                    if (err) {
+                        return reject(err);
+                    }
+                    resolve(results[0]); 
+                });
+            });
+    
+            if (!product) {
+                return res.status(404).send('Produit non trouvé');
+            }
+                res.render("produit", { product });
+    
+        } catch (err) {
+            res.status(500).send('Erreur lors de la récupération des données du produit: ' + err);
+        }
+    });
+    
 
 
      app.get('/deconnexion', (req, res) => {

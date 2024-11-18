@@ -4,7 +4,7 @@
     <body>
         <div class="product-container">
             <div class="product-image">
-                <img src="<%= product.image %>" alt="<%= product.name %>">
+                <img src="<%= product.image %>" alt="<%= product.type %>">
             </div>
 
             <div class="product-info">
@@ -12,9 +12,11 @@
                 <p>Marque : <%= product.marque %></p>
                 <p>Modèle : <%= product.modele %></p>
                 <p>Description : <%= product.description %></p>
+                <p>Prix de location : <%= product.prix_location %>€</p>
             </div>
         </div>
-        <div class="reservation-boutton">
+
+        <div class="reservation-button">
             <a href="/reserver" class="reserve-btn">Réserver</a>
         </div>
     </body>
