@@ -46,7 +46,6 @@ ul {
 
 ul:hover {
     color: #F18F01;
-    background-color: #31210f;
 }
 
 body {
@@ -124,7 +123,7 @@ a {
 
 a:hover {
     text-decoration: none;
-    color: #f18101;
+    color: #ffffff;
 }
 
 .catalogue-btn:hover {
@@ -950,3 +949,6 @@ input[type="number"] {
     text-decoration: underline;
 }
 
+
+
+ul
