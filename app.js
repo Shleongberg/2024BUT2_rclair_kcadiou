@@ -92,8 +92,15 @@ app.get('/connexion', function(req, res) {
 });
 
 app.get('/compte', function(req, res) {
-    res.render("compte", {error : null});
- });
+    if (!req.session.userID){
+        return res.redirect("/connexion")
+    }
+    try{
+        const users  =  utilisateurs.getUserById(req.session.userID);
+        res.render("compte",users);
+    } catch (err){
+        res.status(500).send('Erreur lors de la récupération des données'+ err)
+    }});
 
 app.get('/reservation', async function(req, res) {
     if (!req.session.userID){

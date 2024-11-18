@@ -1,6 +1,5 @@
 
 <% if(isAuth){ %>
-
 <%- include('header'); -%>
 
 
@@ -9,11 +8,9 @@
     <main class="account-page">
         <div class="sidebar">
             <h2>Mon Compte</h2>
-            <ul>
-                <li><a href="#">Informations du compte</a></li>
+
                 <li><a href="#">Mes commentaires</a></li>
-                <li><a href="#">Ma liste d'achats</a></li>
-            </ul>
+            
         </div>
 
         <div class="main-content-compte">
@@ -24,30 +21,15 @@
                 <div class="info-section">
                     <div class="info-block">
                         <h3>Informations de contact</h3>
-                        <p>J Dupont<br>jdupont@gmail.com<br>26/10/2005</p>
+                        <p>Nom : Prenom : <br>email<br>date de</p>
                         <a href="#">Modifier les informations</a>
                     </div>
-                    <div class="info-block">
-                        <h3>Adresse de livraison par défaut</h3>
-                        <p>Vous n'avez pas spécifié d'adresse de livraison par défaut.</p>
-                        <a href="#">Modifier l'adresse de livraison</a>
-                    </div>
-                </div>
-            </section>
-
-            <section class="address-book">
-                <h2>Mot de passe</h2>
-                <div class="info-section">
                     <div class="info-block">
                         <h3>Sécurité du compte</h3>
                         <p>Votre mot de passe est bien enregistrer !</p>
                         <a href="#">Modifier le mot de passe</a>
                     </div>
-                    <div class="info-block">
-                        <h3>Newsletters</h3>
-                        <p>Vous n'êtes pas abonné à notre newsletter.</p>
-                        <a href="#">Modifier</a>
-                    </div>
+                    
                 </div>
             </section>
         </div>
