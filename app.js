@@ -136,21 +136,12 @@ app.get('/reservation', async function(req, res) {
         }
         try {
             const productId = req.params.id;
-    
-            const productQuery = "SELECT * FROM produit WHERE id = ?";
-            const product = await new Promise((resolve, reject) => {
-                database.query(productQuery, [productId], (err, results) => {
-                    if (err) {
-                        return reject(err);
-                    }
-                    resolve(results[0]); 
-                });
-            });
+            const product = await produits.getProductById(productId)
     
             if (!product) {
                 return res.status(404).send('Produit non trouvé');
             }
-                res.render("produit", { product });
+                res.render("product", { product });
     
         } catch (err) {
             res.status(500).send('Erreur lors de la récupération des données du produit: ' + err);
