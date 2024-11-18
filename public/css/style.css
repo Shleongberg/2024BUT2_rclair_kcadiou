@@ -907,6 +907,7 @@ input[type="number"] {
 .main-content {
     flex: 1;
     padding: 20px;
+    
 }
 
 .main-content h1 {
