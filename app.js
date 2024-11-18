@@ -44,7 +44,7 @@ app.post('/connexion', async function(req, res) {
         req.session.userID = user.id;
         req.session.role = user.type_utilisateur;
 
-        return res.redirect("/");
+        return res.redirect("/compte");
     }
     else{
         res.render("login",{error: "Mauvais login/Mdp"})
@@ -90,6 +90,10 @@ app.get('/', async function(req, res) {
 app.get('/connexion', function(req, res) {
    res.render("login", {error : null});
 });
+
+app.get('/compte', function(req, res) {
+    res.render("compte", {error : null});
+ });
 
 app.get('/reservation', async function(req, res) {
     if (!req.session.userID){
