@@ -1,40 +1,40 @@
-
 <% if(isAuth){ %>
-<%- include('header'); -%>
-
-
-<body>
+    <%- include('header'); -%>
     
-    <main class="account-page">
-        <div class="sidebar">
-            <h2>Mon Compte</h2>
-
+    <body>
+        <main class="account-page">
+            <div class="sidebar">
+                <h2>Mon Compte</h2>
                 <li><a href="#">Mes commentaires</a></li>
-            
-        </div>
-
-        <div class="main-content-compte">
-            <h2>Mon tableau de bord</h2>
-            
-            <section class="account-info">
-                <h2>Informations du compte</h2>
-                <div class="info-section">
-                    <div class="info-block">
-                        <h3>Informations de contact</h3>
-                        <p>Nom : Prenom : <br>email<br>date de</p>
-                        <a href="#">Modifier les informations</a>
+            </div>
+    
+            <div class="main-content-compte">
+                <h2>Mon tableau de bord</h2>
+                
+                <section class="account-info">
+                    <h2>Informations du compte</h2>
+                    <div class="info-section">
+                        <div class="info-block">
+                            <h3>Informations de contact</h3>
+                            <p>
+                                Nom : <%= user.nom %><br>
+                                Prénom : <%= user.prenom %><br>
+                                Email : <%= user.email %><br>
+                                Date d'inscription : <%= user.date_inscription %>
+                            </p>
+                            <a href="#">Modifier les informations</a>
+                        </div>
+                        <div class="info-block">
+                            <h3>Sécurité du compte</h3>
+                            <p>Votre mot de passe est bien enregistré !</p>
+                            <a href="#">Modifier le mot de passe</a>
+                        </div>
                     </div>
-                    <div class="info-block">
-                        <h3>Sécurité du compte</h3>
-                        <p>Votre mot de passe est bien enregistrer !</p>
-                        <a href="#">Modifier le mot de passe</a>
-                    </div>
-                    
-                </div>
-            </section>
-        </div>
-    </main>
-</body>
-
-<%- include('footer'); -%>
-<% } %>
+                </section>
+            </div>
+        </main>
+    </body>
+    
+    <%- include('footer'); -%>
+    <% } %>
+    

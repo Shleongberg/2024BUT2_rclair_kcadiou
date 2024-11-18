@@ -86,21 +86,25 @@ app.get('/', async function(req, res) {
 
 });
 
-
 app.get('/connexion', function(req, res) {
    res.render("login", {error : null});
 });
 
-app.get('/compte', function(req, res) {
-    if (!req.session.userID){
-        return res.redirect("/connexion")
+app.get('/compte', async function(req, res) {
+    if (!req.session.userID) {
+        return res.redirect("/connexion");
     }
-    try{
-        const users  =  utilisateurs.getUserById(req.session.userID);
-        res.render("compte",users);
-    } catch (err){
-        res.status(500).send('Erreur lors de la récupération des données'+ err)
-    }});
+    try {
+        const users = await utilisateurs.getUserById(req.session.userID);
+        
+        const user = users[0];  // accès premier user
+        
+        res.render("compte", { user });
+    } catch (err) {
+        res.status(500).send('Erreur lors de la récupération des données: ' + err);
+    }
+});
+
 
 app.get('/reservation', async function(req, res) {
     if (!req.session.userID){
