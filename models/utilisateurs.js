@@ -39,6 +39,21 @@ async function addUser(login,mail,password) {
     });
 }
 
+async function addagent(login,mail,password) {  
+    const sql = "INSERT INTO utilisateur (login, email, password, type_utilisateur) VALUES (?, ?, ?, 'agent')";
+    return new Promise((resolve, reject) => {
+        database.query(sql, [login, mail, password,], (err, results) => {  
+            if (err) {
+                if (err.code === 'ER_DUP_ENTRY') {
+                    return reject(new Error('Cet utilisateur ou cet email existe déjà.'));
+                }
+                return reject(err);
+            }
+            resolve(results.insertId); 
+        });
+    });
+}
 
 
-module.exports = {getUserById, checkLogin, addUser};
+
+module.exports = {getUserById, checkLogin, addUser, addagent};
