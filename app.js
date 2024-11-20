@@ -86,14 +86,25 @@ app.get('/', async function(req, res) {
 
 });
 
-
 app.get('/connexion', function(req, res) {
    res.render("login", {error : null});
 });
 
-app.get('/compte', function(req, res) {
-    res.render("compte", {error : null});
- });
+app.get('/compte', async function(req, res) {
+    if (!req.session.userID) {
+        return res.redirect("/connexion");
+    }
+    try {
+        const users = await utilisateurs.getUserById(req.session.userID);
+        
+        const user = users[0];  // accès premier user
+        
+        res.render("compte", { user });
+    } catch (err) {
+        res.status(500).send('Erreur lors de la récupération des données: ' + err);
+    }
+});
+
 
 app.get('/reservation', async function(req, res) {
     if (!req.session.userID){
@@ -119,17 +130,19 @@ app.get('/reservation', async function(req, res) {
         }
       });
 
-app.get('/produit', async function(req, res) {
-    if (!req.session.userID){
-        return res.redirect("/connexion")
-    }
-    try{
-        const users  = await utilisateurs.getUserById(req.session.userID);
-        res.render("product",users);
-    } catch (err){
-        res.status(500).send('Erreur lors de la récupération des données'+ err)
-    }});
-
+      app.get('/produit/:id', async function(req, res) {
+        if (!req.session.userID) {
+            return res.redirect("/connexion");
+        }
+        try {
+            const productId = req.params.id;
+            const product = await produits.getProductById(productId)
+                res.render("product", { product });
+    
+        } catch (err) {
+            res.status(500).send('Erreur lors de la récupération des données du produit: ' + err);
+        }
+    });
 
      app.get('/deconnexion', (req, res) => {
         req.session.destroy((err) => {
@@ -144,9 +157,6 @@ app.get('/produit', async function(req, res) {
 app.use((req, res) => {
     res.status(404).render("404");
 });
-
-
-
 
 app.listen(3000, () => {
     console.log('Server running on port 3000');

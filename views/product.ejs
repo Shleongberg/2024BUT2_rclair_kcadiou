@@ -1,20 +1,25 @@
-<% if(isAuth){ %>
-<%- include('header'); -%>
+<% if(isAuth) { %>
+    <%- include('header'); -%>
 
     <body>
-        <div class="container">
-            <h1>Caméra DSLR</h1>
-            <div class="product-details">
-                <p><span>Marque :</span> </p>
-                <p><span>Modèle :</span> </p>
-                <p class="description"><span>Description :</span> </p>
-                <p class="prix"><span>Prix :</span> 50 € par jour</p>
+        <div class="product-container">
+            <div class="product-image">
+                <img src="<%= product.image %>" alt="<%= product.type %>">
             </div>
-            <a href="/reserver" class="reserve-btn">Réserver</a>
+
+            <div class="product-info">
+                <h2><%= product.type %></h2>
+                <p>Marque : <%= product.marque %></p>
+                <p>Modèle : <%= product.modele %></p>
+                <p>Description : <%= product.description %></p>
+                <p>Prix de location : <%= product.prix_location %>€</p>
+            </div>
         </div>
 
-    
-</body>
+        <div class="reservation-button">
+            <a href="/reserver" class="reserve-btn">Réserver</a>
+        </div>
+    </body>
 
-<%- include('footer'); -%>
+    <%- include('footer'); -%>
 <% } %>

@@ -46,6 +46,7 @@ ul {
 
 ul:hover {
     color: #F18F01;
+    background-color: #31210f;
 }
 
 body {
@@ -123,7 +124,7 @@ a {
 
 a:hover {
     text-decoration: none;
-    color: #ffffff;
+    color: #f18101;
 }
 
 .catalogue-btn:hover {
@@ -308,6 +309,91 @@ a:hover {
 
 /*----Produit----*/
 
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.product-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #919191;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin: 50px auto;
+    width: 80%;
+}
+
+.product-image img {
+    width: 600px;
+    height: auto;
+    border-radius: 10px;
+    background-color: #ffffff;
+    padding: 60px;
+    margin: 10px;
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 50px;
+}
+
+.product-info h2 {
+    font-size: 24px;
+    color: #222222;
+    margin-bottom: 20px;
+    font-family: Kanit;
+
+}
+
+.reservation,
+.quantity,
+.price {
+    margin-bottom: 20px;
+    font-family: "K2D", sans-serif;
+
+}
+
+.duration-selector,
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 200px;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.duration-selector button,
+.quantity-selector button {
+    background-color: #F18F01;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.price {
+    font-size: 24px;
+    color: #000000;
+    font-family: Kanit;
+}
+
+.price-value {
+    font-weight: bold;
+    color: #F18F01;
+    font-family: "K2D", sans-serif;
+
+}
 
 /*--------------*/
 
@@ -800,34 +886,11 @@ input[type="number"] {
     margin-bottom: 20px;
 }
 
-.sidebar ul {
-    list-style: none;
-}
-
-.sidebar li a {
-    text-decoration: none;
-    color: #333;
-    display: block;
-    padding: 10px;
-    margin-bottom: 5px;
-    border-radius: 5px;
-}
 
 .sidebar li a:hover {
-    background-color: #e67e22;
-    color: white;
+    font-style: italic;
 }
 
-.main-content {
-    flex: 1;
-    padding: 20px;
-    
-}
-
-.main-content h1 {
-    font-size: 2em;
-    margin-bottom: 20px;
-}
 
 .account-info, .address-book {
     border: 1px solid #ddd;
@@ -838,21 +901,22 @@ input[type="number"] {
 
 .info-section {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .info-block {
-    width: 48%;
+    width: 70%;
 }
 
 .info-block h3 {
     font-size: 1.1em;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     color: #555;
+    margin-right: 10%;
 }
 
 .info-block p {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .info-block a {
