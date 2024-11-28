@@ -86,6 +86,7 @@ app.get('/', async function(req, res) {
 
 });
 
+
 app.get('/connexion', function(req, res) {
    res.render("login", {error : null});
 });
@@ -116,6 +117,17 @@ app.get('/reservation', async function(req, res) {
     } catch (err){
         res.status(500).send('Erreur lors de la récupération des données'+ err)
     }});
+
+    app.get('/admin', async function(req, res) {
+        if (!req.session.userID){
+            return res.redirect("/connexion")
+        }
+        try{
+            const users  = await utilisateurs.getUserById(req.session.userID);
+            res.render("admin",users);
+        } catch (err){
+            res.status(500).send('Erreur lors de la récupération des données'+ err)
+        }});
 
 
     app.get('/catalogue', async function (req, res) {
