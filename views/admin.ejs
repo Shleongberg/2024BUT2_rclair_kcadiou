@@ -13,13 +13,11 @@
     
     <body>
 
-    
         <!-- Section de gestion des agents -->
         <section id="agents" class="admin-section">
             <h2>Gestion des agents</h2>
     
             <% if (role === 'admin') { %>
-                <!-- Formulaire de création d'un agent, visible uniquement pour les admins -->
                 <form id="agent-form" class="form" action="/admin/agents/creer" method="POST">
                     <input type="text" name="login" placeholder="Nom d'utilisateur de l'agent" required>
                     <input type="email" name="email" placeholder="Email de l'agent" required>
@@ -27,7 +25,7 @@
                     <button type="submit">Créer un agent</button>
                 </form>
     
-                <!-- Affichage du message de succès ou d'erreur -->
+                <!-- message succès ou erreur -->
                 <% if (message) { %>
                     <div class="<%= message.type %>">
                         <%= message.content %>
@@ -35,7 +33,6 @@
                 <% } %>
             <% } %>
     
-            <!-- Liste des agents existants -->
             <h3>Liste des agents</h3>
             <table>
                 <thead>
@@ -54,7 +51,6 @@
                             <td><%= agent.email %></td>
                             
                             <% if (role === 'admin') { %>
-                                <!-- Formulaire de suppression d'un agent, visible uniquement pour les admins -->
                                 <td>
                                     <form action="/admin/agents/supprimer" method="POST" style="display:inline;">
                                         <input type="hidden" name="id" value="<%= agent.id %>">
