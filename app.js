@@ -81,17 +81,15 @@ app.post('/inscription', async function(req, res) {
     }
 });
 
-// Route d'accueil
 app.get('/', async function(req, res) {
     res.render("index", { error: null });
 });
 
-// Route de connexion
+// connexion
 app.get('/connexion', function(req, res) {
     res.render("login", { error: null });
 });
 
-// Route compte
 app.get('/compte', async function(req, res) {
     if (!req.session.userID) {
         return res.redirect("/connexion");
@@ -105,7 +103,6 @@ app.get('/compte', async function(req, res) {
     }
 });
 
-// Route des réservations
 app.get('/reservation', async function(req, res) {
     if (!req.session.userID) {
         return res.redirect("/connexion");
@@ -118,21 +115,25 @@ app.get('/reservation', async function(req, res) {
     }
 });
 
-// Route admin (protection basée sur le rôle)
 app.get('/admin', async function(req, res) {
-    if (!req.session.userID || req.session.role !== 'admin') {
+    if (!req.session.userID) {
+        return res.redirect("/connexion");
+    }
+
+    if (req.session.role !== 'admin' && req.session.role !== 'agent') {
         return res.redirect("/connexion");
     }
 
     try {
-        const agents = await utilisateurs.getAllAgents(); // Récupère tous les agents
-        res.render("admin", { agents: agents, role: req.session.role, message: null });
+        const agents = await utilisateurs.getAllAgents(); 
+        const products = await produits.getAllProducts(); 
+        res.render("admin", { agents: agents, products: products, role: req.session.role, message: null });
     } catch (err) {
         res.status(500).send('Erreur lors de la récupération des données: ' + err);
     }
 });
 
-// Route POST pour créer un agent
+
 app.post('/admin/agents/creer', async function(req, res) {
     if (req.session.role !== 'admin') {
         return res.redirect("/connexion");
@@ -141,14 +142,13 @@ app.post('/admin/agents/creer', async function(req, res) {
     const { login, email, password } = req.body;
 
     try {
-        await utilisateurs.addAgent(login, email, md5(password)); // Ajoute l'agent à la base de données
-        res.redirect('/admin'); // Redirige vers la page admin après création
+        await utilisateurs.addAgent(login, email, md5(password)); 
+        res.redirect('/admin'); 
     } catch (error) {
         res.render("admin", { message: { type: 'error', content: error.message }, agents: await utilisateurs.getAllAgents(), role: req.session.role });
     }
 });
 
-// Route POST pour supprimer un agent
 app.post('/admin/agents/supprimer', async function(req, res) {
     if (req.session.role !== 'admin') {
         return res.redirect("/connexion");
@@ -157,14 +157,34 @@ app.post('/admin/agents/supprimer', async function(req, res) {
     const agentId = req.body.id;
 
     try {
-        await utilisateurs.deleteAgent(agentId); // Supprime l'agent
-        res.redirect('/admin'); // Redirige vers la page admin après suppression
+        await utilisateurs.deleteAgent(agentId); 
+        res.redirect('/admin'); 
     } catch (error) {
         res.render("admin", { message: { type: 'error', content: error.message }, agents: await utilisateurs.getAllAgents(), role: req.session.role });
     }
 });
 
-// Route catalogue
+app.post('/admin/produits/creer', async function(req, res) {
+    if (req.session.role !== 'agent') {
+        return res.redirect("/connexion");
+    }
+
+    const { nom, marque, modele, description, prix, stock } = req.body;
+
+    try {
+        await produits.addProduct(nom, marque, modele, description, prix, stock);
+        res.redirect('/admin'); 
+    } catch (error) {
+        res.render("admin", { 
+            message: { type: 'error', content: error.message }, 
+            agents: await utilisateurs.getAllAgents(), 
+            products: await produits.getAllProducts(), 
+            role: req.session.role 
+        });
+    }
+});
+
+
 app.get('/catalogue', async function(req, res) {
     if (!req.session.userID) {
         return res.redirect("/connexion");
@@ -177,7 +197,6 @@ app.get('/catalogue', async function(req, res) {
     }
 });
 
-// Route produit spécifique
 app.get('/produit/:id', async function(req, res) {
     if (!req.session.userID) {
         return res.redirect("/connexion");
@@ -191,7 +210,6 @@ app.get('/produit/:id', async function(req, res) {
     }
 });
 
-// Route déconnexion
 app.get('/deconnexion', (req, res) => {
     req.session.destroy((err) => {
         if (err) {
@@ -202,7 +220,6 @@ app.get('/deconnexion', (req, res) => {
     });
 });
 
-// 404
 app.use((req, res) => {
     res.status(404).render("404");
 });

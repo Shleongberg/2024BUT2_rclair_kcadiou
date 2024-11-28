@@ -24,13 +24,6 @@
                     <input type="password" name="password" placeholder="Mot de passe" required>
                     <button type="submit">Créer un agent</button>
                 </form>
-    
-                <!-- message succès ou erreur -->
-                <% if (message) { %>
-                    <div class="<%= message.type %>">
-                        <%= message.content %>
-                    </div>
-                <% } %>
             <% } %>
     
             <h3>Liste des agents</h3>
@@ -49,15 +42,14 @@
                             <td><%= agent.id %></td>
                             <td><%= agent.login %></td>
                             <td><%= agent.email %></td>
-                            
-                            <% if (role === 'admin') { %>
+                             <% if (role === 'admin') { %>
                                 <td>
                                     <form action="/admin/agents/supprimer" method="POST" style="display:inline;">
                                         <input type="hidden" name="id" value="<%= agent.id %>">
                                         <button type="submit" class="delete">Supprimer</button>
                                     </form>
                                 </td>
-                            <% } %>
+                             <% } %>
                         </tr>
                     <% }); %>
                 </tbody>
@@ -67,15 +59,20 @@
         <!-- Section de gestion des produits -->
         <section id="produits" class="admin-section">
             <h2>Gestion des produits</h2>
-            <form id="product-form" class="form">
-                <input type="text" placeholder="Nom du produit" required>
-                <input type="text" placeholder="marque" required>
-                <input type="text" placeholder="modèle" required>
-                <input type="text" placeholder="description" required>
-                <input type="number" placeholder="Prix (€)" step="0.01" required>
-                <input type="number" placeholder="Stock" required>
-                <button type="submit">Créer un produit</button>
-            </form>
+
+            <% if (role === 'agent') { %>
+                <form id="product-form" class="form" action="/admin/produits/creer" method="POST">
+                    <input type="text" name="nom" placeholder="Nom du produit" required>
+                    <input type="text" name="marque" placeholder="Marque" required>
+                    <input type="text" name="modele" placeholder="Modèle" required>
+                    <input type="text" name="description" placeholder="Description" required>
+                    <input type="number" name="prix" placeholder="Prix (€)" step="0.01" required>
+                    <input type="number" name="stock" placeholder="Stock" required>
+                    <button type="submit">Créer un produit</button>
+                </form>
+            <% } %>
+
+            <h3>Liste des produits</h3>
             <table>
                 <thead>
                     <tr>
@@ -87,16 +84,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Altères 5kg</td>
-                        <td>19.99€</td>
-                        <td>100</td>
-                        <td>
-                            <button class="edit">Modifier</button>
-                            <button class="delete">Supprimer</button>
-                        </td>
-                    </tr>
+                    <% products.forEach(function(product) { %>
+                        <tr>
+                            <td><%= product.id %></td>
+                            <td><%= product.nom %></td>
+                            <td><%= product.prix %>€</td>
+                            <td><%= product.stock %></td>
+                            <td>
+                                <button class="edit">Modifier</button>
+                                <button class="delete">Supprimer</button>
+                            </td>
+                        </tr>
+                    <% }); %>
                 </tbody>
             </table>
         </section>
@@ -105,5 +104,4 @@
     </html>
     
     <%- include('footer'); -%>
-    <% } %>
-    
+<% } %>

@@ -23,6 +23,18 @@ const produits = {
                 resolve(results[0]); 
             });
         });
+    },
+
+    addProduct: function (nom, marque, modele, description, prix, stock) {
+        return new Promise((resolve, reject) => {
+            const query = 'INSERT INTO produit (nom, marque, modele, description, prix, stock) VALUES (?, ?, ?, ?, ?, ?)';
+            database.query(query, [nom, marque, modele, description, prix, stock], (err, results) => {
+                if (err) {
+                    return reject(err);
+                }
+                resolve(results);
+            });
+        });
     }
 };
 
