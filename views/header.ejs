@@ -23,15 +23,21 @@
         <h1>LOCFIT</h1>
     </a>
     <div>
-        <a href="/deconnexion" class="iconeLogout"><img src="/image/logout.png" width="60" height="60"></a>
-        <a href="/connexion" class="iconeLogin"><img src="/image/UserIcone.png" width="60" height="60"></a>
+        <% if (isAuth) { %>
+            <a href="/deconnexion" class="iconeLogout"><img src="/image/logout.png" width="60" height="60"></a>
+        <% } %>
+            <a href="/connexion" class="iconeLogin"><img src="/image/UserIcone.png" width="60" height="60"></a>
+
     </div>
 </header>
 <nav>
     <ul><a href="/">Accueil</a></ul>
     <ul><a href="catalogue">Catalogue</a></ul>
     <ul><a href="reservation">Mes Reservations</a></ul>
-
+    <% if (role === 'agent' || role === 'admin') { %>
+        <ul><a href="admin">Gestion</a></ul>
+    <% } %>
 </nav>
+
 
 <body>
