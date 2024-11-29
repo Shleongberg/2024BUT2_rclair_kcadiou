@@ -51,7 +51,6 @@ app.post('/connexion', async function(req, res) {
     }
 });
 
-// Route d'inscription
 app.get('/inscription', function(req, res) {
     res.render("inscription", { error: null });
 });

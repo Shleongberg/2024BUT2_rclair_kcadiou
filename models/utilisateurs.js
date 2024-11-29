@@ -39,7 +39,6 @@ async function addUser(login, mail, password) {
     });
 };
 
-// Fonction pour ajouter un agent
 async function addAgent(login, email, password) {
     const sql = "INSERT INTO utilisateur (login, email, password, type_utilisateur) VALUES (?, ?, ?, 'agent')";
     return new Promise((resolve, reject) => {
