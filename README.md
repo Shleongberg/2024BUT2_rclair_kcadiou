@@ -25,7 +25,7 @@ Le projet Locfit s'inscrit dans le cadre de la SAE3.01 et consiste à devellopé
 
 * **Application du CSS sur certaines pages qui ne s'applique plus :**  <span style="color: orange; font-weight: bold;">Partiellement résolu</span>  
     - **Solution trouvée :** Appel du répertoire "public" pour faciliter le chargement du CSS et des images généralisées.  
-    ![alt text](image.png)
+    ![alt text](/public/image/image.png)
 
 * **Authentification impossible :** <span style="color: green; font-weight: bold;">Résolu</span>  
     - **Solution trouvée :** Erreur de syntaxe dans la fonction `CheckLogin`.
@@ -44,7 +44,7 @@ Le projet Locfit s'inscrit dans le cadre de la SAE3.01 et consiste à devellopé
 
 * **Création d'un agent :** <span style="color: green; font-weight: bold;">Résolu</span>  
     - **Solution trouvée :** Mauvaise méthode utilisé pour le app, (utilisation de la méthode 'get' au lieu de 'post')
-    ![alt text]({30939868-49F5-4DD9-ADDF-87205030FE7A}.png)
+    ![alt text](/public/image/{30939868-49F5-4DD9-ADDF-87205030FE7A}.png)
 
 
 
