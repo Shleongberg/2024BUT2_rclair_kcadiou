@@ -81,11 +81,33 @@ async function deleteAgent(id) {
     });
 }
 
+async function updateUserProfile(id, nom, prenom, email, newPassword = null) {
+    let sql, params;
+
+    if (newPassword) {
+        sql = "UPDATE utilisateur SET nom = ?, prenom = ?, email = ?, password = ? WHERE id = ?";
+        params = [nom, prenom, email, newPassword, id];
+    } else {
+        sql = "UPDATE utilisateur SET nom = ?, prenom = ?, email = ? WHERE id = ?";
+        params = [nom, prenom, email, id];
+    }
+
+    return new Promise((resolve, reject) => {
+        database.query(sql, params, (err, results) => {
+            if (err) {
+                return reject(err);
+            }
+            resolve(results);
+        });
+    });
+}
+
 module.exports = {
     getUserById,
     checkLogin,
     addUser,
     addAgent,
     getAllAgents,
-    deleteAgent
+    deleteAgent,
+    updateUserProfile 
 };

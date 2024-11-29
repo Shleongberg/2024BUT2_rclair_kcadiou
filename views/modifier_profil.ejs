@@ -1,0 +1,31 @@
+<%- include('header'); -%>
+
+<body>
+    <main class="edit-profile-page">
+        <h2>Modifier mes informations</h2>
+        <% if (error) { %>
+            <p style="color: red;"><%= error %></p>
+        <% } %>
+        <form action="/modifier-profil" method="POST">
+            <label for="nom">Nom :</label>
+            <input type="text" id="nom" name="nom" value="<%= user.nom %>" required>
+
+            <label for="prenom">Prénom :</label>
+            <input type="text" id="prenom" name="prenom" value="<%= user.prenom %>" required>
+
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" value="<%= user.email %>" required>
+
+            <label for="currentPassword">Mot de passe actuel :</label>
+            <input type="password" id="currentPassword" name="currentPassword" required>
+
+            <label for="newPassword">Nouveau mot de passe :</label>
+            <input type="password" id="newPassword" name="newPassword">
+
+            <button type="submit">Enregistrer</button>
+        </form>
+        <a href="/compte">Retour à mon compte</a>
+    </main>
+</body>
+
+<%- include('footer'); -%>

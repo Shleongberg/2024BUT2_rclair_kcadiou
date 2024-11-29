@@ -24,7 +24,7 @@ app.use(function(req, res, next) {
     if (req.session.userID) {
         res.locals.isAuth = true;
         res.locals.id = req.session.userID;
-        res.locals.role = req.session.role || null; // Ajoute le rôle utilisateur dans les variables globales
+        res.locals.role = req.session.role || null; 
     } else {
         res.locals.isAuth = false;
         res.locals.id = null;
@@ -96,12 +96,51 @@ app.get('/compte', async function(req, res) {
     }
     try {
         const users = await utilisateurs.getUserById(req.session.userID);
-        const user = users[0]; // Accès au premier utilisateur
+        const user = users[0]; 
         res.render("compte", { user });
     } catch (err) {
         res.status(500).send('Erreur lors de la récupération des données: ' + err);
     }
 });
+
+app.get('/modifier-profil', async function(req, res) {
+    if (!req.session.userID) {
+        return res.redirect("/connexion");
+    }
+    try {
+        const users = await utilisateurs.getUserById(req.session.userID);
+        const user = users[0];
+        res.render("modifier_profil", { user, error: null });
+    } catch (err) {
+        res.status(500).send('Erreur lors de la récupération des données : ' + err);
+    }
+});
+
+
+app.post('/modifier-profil', async function(req, res) {
+    if (!req.session.userID) {
+        return res.redirect("/connexion");
+    }
+
+    const { nom, prenom, email, currentPassword, newPassword } = req.body;
+
+    try {
+        const user = (await utilisateurs.getUserById(req.session.userID))[0];
+
+        if (md5(currentPassword) !== user.password) {
+            throw new Error("Le mot de passe actuel est incorrect.");
+        }
+        const hashedNewPassword = newPassword ? md5(newPassword) : null;
+        await utilisateurs.updateUserProfile(req.session.userID, nom, prenom, email, hashedNewPassword);
+
+        res.redirect('/compte');
+    } catch (error) {
+        const users = await utilisateurs.getUserById(req.session.userID);
+        const user = users[0];
+        res.render("modifier_profil", { user, error: error.message });
+    }
+});
+
 
 app.get('/reservation', async function(req, res) {
     if (!req.session.userID) {
